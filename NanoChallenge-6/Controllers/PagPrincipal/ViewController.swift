@@ -17,7 +17,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var viewIptPrincipal: UIView!
     @IBOutlet weak var viewBtnSearch: UIView!
     @IBOutlet weak var mapViewPagPrincipal: MKMapView!
-    @IBOutlet weak var viewBtnFiltrarPesquisa: UIView!
+    @IBOutlet weak var viewBtnFiltrarPesquisa: UIButton!
+    
     
     
     
@@ -25,14 +26,17 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         //Manipulando as views que representarão o input
-        viewIptPrincipal.layer.cornerRadius = 10
         mapViewPagPrincipal.layer.cornerRadius = 10
-        viewBtnFiltrarPesquisa.layer.cornerRadius = 10
+        
+        viewIptPrincipal.layer.cornerRadius = 10
         viewBtnSearch.layer.cornerRadius = 10
+        
+        viewBtnFiltrarPesquisa.layer.cornerRadius = 10
+        
         //Ajustando para que só o lado esquerdo da viewBtnSearch estejam com o cornerRadius aplicado
         viewBtnSearch.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
         
-       
+        //Referenciando o delegate e dataSource dos objetos à classe ViewController
         tbViewListDepositos.delegate = self
         tbViewListDepositos.dataSource = self
     }
@@ -45,10 +49,13 @@ extension ViewController: UITableViewDelegate {
 }
 
 extension ViewController: UITableViewDataSource {
+    
+    //Setando a quantidade de celulas que terá na tabela
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
+    //Adicionando valor aos objetos dentro da célula
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tbViewListDepositos.dequeueReusableCell(withIdentifier: "ListaDepositosTableViewCell") as! ListaDepositosTableViewCell
         cell.lblNomeDeposito.text = "Depósito do seu zé"
