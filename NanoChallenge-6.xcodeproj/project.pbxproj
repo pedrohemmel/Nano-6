@@ -13,7 +13,7 @@
 		16A29CCA288A2C2900AD61AF /* AtualizaOuAdicionaUsuarioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A29CC9288A2C2900AD61AF /* AtualizaOuAdicionaUsuarioViewModel.swift */; };
 		16CA423A287F42090046C98C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CA4239287F42090046C98C /* AppDelegate.swift */; };
 		16CA423C287F42090046C98C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CA423B287F42090046C98C /* SceneDelegate.swift */; };
-		16CA423E287F42090046C98C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CA423D287F42090046C98C /* ViewController.swift */; };
+		16CA423E287F42090046C98C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CA423D287F42090046C98C /* MainViewController.swift */; };
 		16CA4241287F42090046C98C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16CA423F287F42090046C98C /* Main.storyboard */; };
 		16CA4243287F420C0046C98C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16CA4242287F420C0046C98C /* Assets.xcassets */; };
 		16CA4246287F420C0046C98C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16CA4244287F420C0046C98C /* LaunchScreen.storyboard */; };
@@ -33,7 +33,7 @@
 		16CA4236287F42090046C98C /* NanoChallenge-6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NanoChallenge-6.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16CA4239287F42090046C98C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16CA423B287F42090046C98C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		16CA423D287F42090046C98C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		16CA423D287F42090046C98C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		16CA4240287F42090046C98C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		16CA4242287F420C0046C98C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		16CA4245287F420C0046C98C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -129,7 +129,7 @@
 		16CA42552880F96B0046C98C /* PagPrincipal */ = {
 			isa = PBXGroup;
 			children = (
-				16CA423D287F42090046C98C /* ViewController.swift */,
+				16CA423D287F42090046C98C /* MainViewController.swift */,
 				16CA42562880F9B00046C98C /* ListaDepositosTableViewCell.swift */,
 			);
 			path = PagPrincipal;
@@ -219,7 +219,7 @@
 				16CC824D288957CD0007D3F0 /* UsuarioViewModel.swift in Sources */,
 				16A29CC62889B75F00AD61AF /* DepositoViewModel.swift in Sources */,
 				16CC825228895AE70007D3F0 /* ClienteHTTP.swift in Sources */,
-				16CA423E287F42090046C98C /* ViewController.swift in Sources */,
+				16CA423E287F42090046C98C /* MainViewController.swift in Sources */,
 				16A29CCA288A2C2900AD61AF /* AtualizaOuAdicionaUsuarioViewModel.swift in Sources */,
 				16CA423A287F42090046C98C /* AppDelegate.swift in Sources */,
 				16CA42572880F9B00046C98C /* ListaDepositosTableViewCell.swift in Sources */,

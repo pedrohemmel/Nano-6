@@ -8,85 +8,85 @@
 import Foundation
 
 final class AtualizaOuAdicionaDepositoViewModel: ObservableObject {
-    @Published var  = ""
+    @Published var cnpjDep = ""
+    @Published var nomeFantasiaDep = ""
+    @Published var emailContatoDep = ""
+    @Published var enderecoDep = ""
+    @Published var senhaDep = ""
     
-    @Published var songId: UUID?
+    @Published var depositoId: UUID?
     
-    var isUpdating: Bool {
-        songId != nil
+    var estaAtualizando: Bool {
+        depositoId != nil
     }
     
-    var buttonTitle: String {
-        songId != nil ? "U"
+    //Setando qual será o valor do titulo quando o usuário clicar
+    var tituloBotao: String {
+        depositoId != nil ? "Atualiza Deposito" : "Adicionar Deposito"
+    }
+    
+    init() {}
+    
+    //Inicializando as variáveis com o parâmetro de um objeto ja estruturado
+    init(depositoAtual: DepositoMD) {
+        self.cnpjDep = depositoAtual.CNPJ
+        self.nomeFantasiaDep = depositoAtual.nomeFantasia
+        self.emailContatoDep = depositoAtual.emailContato
+        self.enderecoDep = depositoAtual.endereco
+        self.senhaDep = depositoAtual.senha
+        
+        self.depositoId = depositoAtual.id
+    }
+    
+    
+    //Criando função que vai enviar os dados no banco de dados para salvar um novo deposito
+    func adicionaDeposito() async throws {
+        
+        //Setando qual será a url usada para enviar ao banco de dados na tabela certa
+        let urlString : String = Constantes.baseURL + PontosFinais.depositos
+        
+        //Autenticando a url
+        guard let url = URL(string: urlString) else {
+            throw ErrosHTTP.badURL
+        }
+        
+        //Criando o objeto que queremos enviar para o banco de dados
+        let deposito = DepositoMD(id: nil, nomeFantasia: self.nomeFantasiaDep, CNPJ: self.cnpjDep, emailContato: self.emailContatoDep, endereco: self.enderecoDep, senha: self.senhaDep)
+        
+        //Enviando o objeto criado pela url autenticada e determinando o metodo que enviamos por HTTP que é o POST
+        try await ClienteHttp.shared.enviarDado(to: url, objeto: deposito, metodoHttp: MetodosHTTP.POST.rawValue)
+    }
+    
+    //Função que vai permitir o usuário de editar dados dos depositos
+    
+    func atualizaDeposito() async throws {
+        
+        //Setando qual será a url usada para enviar ao banco de dados na tabela certa
+        let urlString : String = Constantes.baseURL + PontosFinais.depositos
+        
+        //Autenticando a url
+        guard let url = URL(string: urlString) else {
+            throw ErrosHTTP.badURL
+        }
+        //Criando o objeto que queremos enviar para o banco de dados mas agora setamos o id existente porque o objeto sera modificado e não criado
+        let depositoAtualizado = DepositoMD(id: self.depositoId, nomeFantasia: self.nomeFantasiaDep, CNPJ: self.cnpjDep, emailContato: self.emailContatoDep, endereco: self.enderecoDep, senha: self.senhaDep)
+        
+        //Enviando o objeto criado pela url autenticada e determinando o metodo que enviamos por HTTP que é o PUT que seria para modificar o objeto
+        try await ClienteHttp.shared.enviarDado(to: url, objeto: depositoAtualizado, metodoHttp: MetodosHTTP.PUT.rawValue)
+    }
+    
+    //função que faz a decisão de qual vai ser a função a ser chamada: adicionaDeposito() || atualizaDeposito()
+    func atualizarOuAdicionarDeposito() {
+        Task {
+            do {
+                if estaAtualizando {
+                    try await atualizaDeposito()
+                } else {
+                    try await adicionaDeposito()
+                }
+            } catch {
+                print("Erro \(error)")
+            }
+        }
     }
 }
-
-
-//final class UpdateOrAddSongViewModel: ObservableObject {
-//    @Published var songTitle = ""
-//
-//    @Published var songID: UUID?
-//
-//    var isUpdating: Bool {
-//        songID != nil
-//    }
-//
-//    var buttonTitle: String {
-//        songID != nil ? "Update Song" : "Add Song"
-//    }
-//
-//    init() {}
-//
-//    init(currentSong: Song) {
-//        self.songTitle = currentSong.title
-//        self.songID = currentSong.id
-//    }
-//
-//    //Criando função que vai enviar os dados no banco de dados para salvar uma nova música
-//    func addSong() async throws {
-//        let urlString : String = Constants.baseURL + Endpoints.songs
-//
-//        guard let url = URL(string: urlString) else {
-//            throw HttpError.badURL
-//        }
-//
-//        let song = Song(id: nil, title: songTitle)
-//
-//        try await HttpClient.shared.sendData(to: url, object: song, httpMethod: HttpMethods.POST.rawValue)
-//    }
-//
-//    //Função que vai permitir o usuário de editar dados das músicas
-//    func updateSong() async throws {
-//        //Setando a url base para o acesso à API
-//        let urlString : String = Constants.baseURL + Endpoints.songs
-//
-//        guard let url = URL(string: urlString) else {
-//            throw HttpError.badURL
-//        }
-//
-//        //Estruturando um novo objeto do tipo Song para enviar para o banco dados pelo método PUT
-//        let songToUpdate = Song(id: songID, title: songTitle)
-//
-//        //Enviando dados para a API em JSON, após isso os dados serão enviados para o banco de dados
-//        try await HttpClient.shared.sendData(to: url, object: songToUpdate, httpMethod: HttpMethods.PUT.rawValue)
-//
-//        print("atualizou agora")
-//    }
-//
-//    //função que faz a decisão de qual vai ser a função a ser chamada: addSong() || updateSong()
-//    func addOrUpdateAction()  {
-//        Task {
-//            do {
-//                if isUpdating {
-//                    try await updateSong()
-//                } else {
-//                    try await addSong()
-//                }
-//            } catch {
-//                print("Error: \(error)")
-//            }
-//        }
-//    }
-//
-//
-//}

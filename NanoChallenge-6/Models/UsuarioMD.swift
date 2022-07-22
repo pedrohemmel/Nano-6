@@ -12,7 +12,9 @@ struct UsuarioMD: Identifiable, Codable {
     
     let id: UUID?
     var email: String
-    var nomeUsu: String
+    var nomeDeUsuario: String
+    var nome: String
+    var endereco: String
     var senha: String
     
     

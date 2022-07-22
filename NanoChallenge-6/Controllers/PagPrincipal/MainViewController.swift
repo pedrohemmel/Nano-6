@@ -9,7 +9,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
     
     
     //Conectando as view no storyboard dentro do código para futuras manipulações
@@ -44,11 +44,11 @@ class ViewController: UIViewController {
 
 }
 
-extension ViewController: UITableViewDelegate {
+extension MainViewController: UITableViewDelegate {
     
 }
 
-extension ViewController: UITableViewDataSource {
+extension MainViewController: UITableViewDataSource {
     
     //Setando a quantidade de celulas que terá na tabela
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
