@@ -10,11 +10,11 @@ import Foundation
 //Criando a variável(objeto) estruturada
 struct UsuarioMD: Identifiable, Codable {
     
-    let id: UUID?
     var email: String
-    var nomeDeUsuario: String
-    var nome: String
+    let id: UUID?
+    var nomeUsu: String
     var endereco: String
+    var nome: String
     var senha: String
     
     

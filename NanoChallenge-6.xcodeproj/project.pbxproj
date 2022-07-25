@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		169D8CD4288F43C30041A36F /* CadastroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169D8CD3288F43C30041A36F /* CadastroViewController.swift */; };
+		169D8CD6288F5B440041A36F /* AdicionarEnderecoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169D8CD5288F5B440041A36F /* AdicionarEnderecoViewController.swift */; };
 		16A29CC42889B0C500AD61AF /* AcaoEscolhida.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A29CC32889B0C500AD61AF /* AcaoEscolhida.swift */; };
 		16A29CC62889B75F00AD61AF /* DepositoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A29CC52889B75F00AD61AF /* DepositoViewModel.swift */; };
 		16A29CC8288A2C1600AD61AF /* AtualizaOuAdicionaDepositoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A29CC7288A2C1600AD61AF /* AtualizaOuAdicionaDepositoViewModel.swift */; };
 		16A29CCA288A2C2900AD61AF /* AtualizaOuAdicionaUsuarioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A29CC9288A2C2900AD61AF /* AtualizaOuAdicionaUsuarioViewModel.swift */; };
+		16A6659A288C3A200011B8C4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A66599288C3A200011B8C4 /* LoginViewController.swift */; };
 		16CA423A287F42090046C98C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CA4239287F42090046C98C /* AppDelegate.swift */; };
 		16CA423C287F42090046C98C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CA423B287F42090046C98C /* SceneDelegate.swift */; };
 		16CA423E287F42090046C98C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CA423D287F42090046C98C /* MainViewController.swift */; };
@@ -26,10 +29,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		169D8CD3288F43C30041A36F /* CadastroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroViewController.swift; sourceTree = "<group>"; };
+		169D8CD5288F5B440041A36F /* AdicionarEnderecoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdicionarEnderecoViewController.swift; sourceTree = "<group>"; };
 		16A29CC32889B0C500AD61AF /* AcaoEscolhida.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcaoEscolhida.swift; sourceTree = "<group>"; };
 		16A29CC52889B75F00AD61AF /* DepositoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositoViewModel.swift; sourceTree = "<group>"; };
 		16A29CC7288A2C1600AD61AF /* AtualizaOuAdicionaDepositoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtualizaOuAdicionaDepositoViewModel.swift; sourceTree = "<group>"; };
 		16A29CC9288A2C2900AD61AF /* AtualizaOuAdicionaUsuarioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtualizaOuAdicionaUsuarioViewModel.swift; sourceTree = "<group>"; };
+		16A66599288C3A200011B8C4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		16CA4236287F42090046C98C /* NanoChallenge-6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NanoChallenge-6.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16CA4239287F42090046C98C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16CA423B287F42090046C98C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,8 +67,27 @@
 			isa = PBXGroup;
 			children = (
 				16CA42552880F96B0046C98C /* PagPrincipal */,
+				16A66598288C39F90011B8C4 /* PagLogin */,
+				169D8CD2288F43800041A36F /* PagCadastro */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		169D8CD2288F43800041A36F /* PagCadastro */ = {
+			isa = PBXGroup;
+			children = (
+				169D8CD3288F43C30041A36F /* CadastroViewController.swift */,
+				169D8CD5288F5B440041A36F /* AdicionarEnderecoViewController.swift */,
+			);
+			path = PagCadastro;
+			sourceTree = "<group>";
+		};
+		16A66598288C39F90011B8C4 /* PagLogin */ = {
+			isa = PBXGroup;
+			children = (
+				16A66599288C3A200011B8C4 /* LoginViewController.swift */,
+			);
+			path = PagLogin;
 			sourceTree = "<group>";
 		};
 		16CA422D287F42090046C98C = {
@@ -216,6 +241,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16A6659A288C3A200011B8C4 /* LoginViewController.swift in Sources */,
 				16CC824D288957CD0007D3F0 /* UsuarioViewModel.swift in Sources */,
 				16A29CC62889B75F00AD61AF /* DepositoViewModel.swift in Sources */,
 				16CC825228895AE70007D3F0 /* ClienteHTTP.swift in Sources */,
@@ -226,8 +252,10 @@
 				16A29CC42889B0C500AD61AF /* AcaoEscolhida.swift in Sources */,
 				16CA423C287F42090046C98C /* SceneDelegate.swift in Sources */,
 				16CA4254287F47350046C98C /* DepositoMD.swift in Sources */,
+				169D8CD4288F43C30041A36F /* CadastroViewController.swift in Sources */,
 				16CA4251287F43600046C98C /* UsuarioMD.swift in Sources */,
 				16A29CC8288A2C1600AD61AF /* AtualizaOuAdicionaDepositoViewModel.swift in Sources */,
+				169D8CD6288F5B440041A36F /* AdicionarEnderecoViewController.swift in Sources */,
 				16CC82502889591F0007D3F0 /* Constantes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

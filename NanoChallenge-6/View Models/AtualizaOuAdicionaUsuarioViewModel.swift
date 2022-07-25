@@ -30,7 +30,7 @@ final class AtualizaOuAdicionaUsuarioViewModel: ObservableObject {
     //Inicializando as variáveis com o parâmetro de um objeto ja estruturado
     init(usuarioAtual: UsuarioMD) {
         self.emailUsu = usuarioAtual.email
-        self.nomeDeUsuario = usuarioAtual.nomeDeUsuario
+        self.nomeDeUsuario = usuarioAtual.nomeUsu
         self.nomeUsu = usuarioAtual.nome
         self.enderecoUsu = usuarioAtual.endereco
         self.senhaUsu = usuarioAtual.senha
@@ -50,7 +50,7 @@ final class AtualizaOuAdicionaUsuarioViewModel: ObservableObject {
         }
         
         //Criando o objeto que queremos enviar para o banco de dados
-        let usuario = UsuarioMD(id: nil, email: self.emailUsu, nomeDeUsuario: self.nomeDeUsuario, nome: self.nomeUsu, endereco: self.enderecoUsu, senha: self.senhaUsu)
+        let usuario = UsuarioMD(email: self.emailUsu, id: nil, nomeUsu: self.nomeDeUsuario, endereco: self.nomeUsu, nome: self.enderecoUsu, senha: self.senhaUsu)
         
         //Enviando o objeto criado pela url autenticada e determinando o metodo que enviamos por HTTP que é o POST
         try await ClienteHttp.shared.enviarDado(to: url, objeto: usuario, metodoHttp: MetodosHTTP.POST.rawValue)
@@ -68,7 +68,7 @@ final class AtualizaOuAdicionaUsuarioViewModel: ObservableObject {
         }
         
         //Criando o objeto que queremos enviar para o banco de dados mas agora setamos o id existente porque o objeto sera modificado e não criado
-        let usuario = UsuarioMD(id: self.usuarioId, email: self.emailUsu, nomeDeUsuario: self.nomeDeUsuario, nome: self.nomeUsu, endereco: self.enderecoUsu, senha: self.senhaUsu)
+        let usuario = UsuarioMD(email: self.emailUsu, id: self.usuarioId, nomeUsu: self.nomeDeUsuario, endereco: self.nomeUsu, nome: self.enderecoUsu, senha: self.senhaUsu)
         
         //Enviando o objeto criado pela url autenticada e determinando o metodo que enviamos por HTTP que é o PUT que seria para modificar o objeto
         try await ClienteHttp.shared.enviarDado(to: url, objeto: usuario, metodoHttp: MetodosHTTP.PUT.rawValue)
