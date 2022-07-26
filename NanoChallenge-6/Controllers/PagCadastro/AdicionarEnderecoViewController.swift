@@ -6,11 +6,20 @@
 //
 
 import UIKit
+import MapKit
+import CoreLocation
+//import FloatingPanel
 
 class AdicionarEnderecoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        let auxVC = AuxAdicionarEnderecoViewController()
+//        auxVC.delegate = self
+//        let panel = FloatingPanelController()
+//        panel.set(contentViewController: AuxAdicionarEnderecoViewController())
+//        panel.addPanel(toParent: self)
 
         // Do any additional setup after loading the view.
     }
@@ -26,4 +35,12 @@ class AdicionarEnderecoViewController: UIViewController {
     }
     */
 
+}
+
+extension AdicionarEnderecoViewController: AuxAdicionarEnderecoViewControllerDelegate {
+    func auxAdicionarEnderecoViewController(_ vc: AuxAdicionarEnderecoViewController, didSelectLocationWith coordinate: CLLocationCoordinate2D?) {
+        print("oi")
+    }
+    
+    
 }

@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		168C8C36289027C80047A85B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168C8C35289027C80047A85B /* LocationManager.swift */; };
 		169D8CD4288F43C30041A36F /* CadastroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169D8CD3288F43C30041A36F /* CadastroViewController.swift */; };
 		169D8CD6288F5B440041A36F /* AdicionarEnderecoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169D8CD5288F5B440041A36F /* AdicionarEnderecoViewController.swift */; };
+		169D8CD8288F5F800041A36F /* AuxAdicionarEnderecoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169D8CD7288F5F800041A36F /* AuxAdicionarEnderecoViewController.swift */; };
 		16A29CC42889B0C500AD61AF /* AcaoEscolhida.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A29CC32889B0C500AD61AF /* AcaoEscolhida.swift */; };
 		16A29CC62889B75F00AD61AF /* DepositoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A29CC52889B75F00AD61AF /* DepositoViewModel.swift */; };
 		16A29CC8288A2C1600AD61AF /* AtualizaOuAdicionaDepositoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A29CC7288A2C1600AD61AF /* AtualizaOuAdicionaDepositoViewModel.swift */; };
@@ -26,17 +28,20 @@
 		16CC824D288957CD0007D3F0 /* UsuarioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CC824C288957CD0007D3F0 /* UsuarioViewModel.swift */; };
 		16CC82502889591F0007D3F0 /* Constantes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CC824F2889591F0007D3F0 /* Constantes.swift */; };
 		16CC825228895AE70007D3F0 /* ClienteHTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CC825128895AE70007D3F0 /* ClienteHTTP.swift */; };
+		A9575A3DDBB92D23749439D2 /* Pods_NanoChallenge_6.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323221194C07A57E8B000C2 /* Pods_NanoChallenge_6.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		168C8C35289027C80047A85B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		169D8CD3288F43C30041A36F /* CadastroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroViewController.swift; sourceTree = "<group>"; };
 		169D8CD5288F5B440041A36F /* AdicionarEnderecoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdicionarEnderecoViewController.swift; sourceTree = "<group>"; };
+		169D8CD7288F5F800041A36F /* AuxAdicionarEnderecoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuxAdicionarEnderecoViewController.swift; sourceTree = "<group>"; };
 		16A29CC32889B0C500AD61AF /* AcaoEscolhida.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcaoEscolhida.swift; sourceTree = "<group>"; };
 		16A29CC52889B75F00AD61AF /* DepositoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositoViewModel.swift; sourceTree = "<group>"; };
 		16A29CC7288A2C1600AD61AF /* AtualizaOuAdicionaDepositoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtualizaOuAdicionaDepositoViewModel.swift; sourceTree = "<group>"; };
 		16A29CC9288A2C2900AD61AF /* AtualizaOuAdicionaUsuarioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtualizaOuAdicionaUsuarioViewModel.swift; sourceTree = "<group>"; };
 		16A66599288C3A200011B8C4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		16CA4236287F42090046C98C /* NanoChallenge-6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NanoChallenge-6.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		16CA4236287F42090046C98C /* NanoChallenge-6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "NanoChallenge-6.app"; path = "/Users/pedro_souza/Documents/Documentos - MacBook Pro de Pedro/GitHub/Nano-6/build/Debug-iphoneos/NanoChallenge-6.app"; sourceTree = "<absolute>"; };
 		16CA4239287F42090046C98C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16CA423B287F42090046C98C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		16CA423D287F42090046C98C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -50,6 +55,9 @@
 		16CC824C288957CD0007D3F0 /* UsuarioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuarioViewModel.swift; sourceTree = "<group>"; };
 		16CC824F2889591F0007D3F0 /* Constantes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constantes.swift; sourceTree = "<group>"; };
 		16CC825128895AE70007D3F0 /* ClienteHTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClienteHTTP.swift; sourceTree = "<group>"; };
+		2D989DC0C5A977E9306685A7 /* Pods-NanoChallenge-6.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NanoChallenge-6.release.xcconfig"; path = "Target Support Files/Pods-NanoChallenge-6/Pods-NanoChallenge-6.release.xcconfig"; sourceTree = "<group>"; };
+		5323221194C07A57E8B000C2 /* Pods_NanoChallenge_6.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NanoChallenge_6.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4ECD3B76FFE6EC46BA0C310 /* Pods-NanoChallenge-6.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NanoChallenge-6.debug.xcconfig"; path = "Target Support Files/Pods-NanoChallenge-6/Pods-NanoChallenge-6.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9575A3DDBB92D23749439D2 /* Pods_NanoChallenge_6.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +87,8 @@
 			children = (
 				169D8CD3288F43C30041A36F /* CadastroViewController.swift */,
 				169D8CD5288F5B440041A36F /* AdicionarEnderecoViewController.swift */,
+				169D8CD7288F5F800041A36F /* AuxAdicionarEnderecoViewController.swift */,
+				168C8C35289027C80047A85B /* LocationManager.swift */,
 			);
 			path = PagCadastro;
 			sourceTree = "<group>";
@@ -94,16 +105,9 @@
 			isa = PBXGroup;
 			children = (
 				16CA4238287F42090046C98C /* NanoChallenge-6 */,
-				16CA4237287F42090046C98C /* Products */,
+				CFC91289B296F00CE9F07A1B /* Pods */,
+				286206983FC325F061CC1D46 /* Frameworks */,
 			);
-			sourceTree = "<group>";
-		};
-		16CA4237287F42090046C98C /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				16CA4236287F42090046C98C /* NanoChallenge-6.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		16CA4238287F42090046C98C /* NanoChallenge-6 */ = {
@@ -170,6 +174,24 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		286206983FC325F061CC1D46 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5323221194C07A57E8B000C2 /* Pods_NanoChallenge_6.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CFC91289B296F00CE9F07A1B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D4ECD3B76FFE6EC46BA0C310 /* Pods-NanoChallenge-6.debug.xcconfig */,
+				2D989DC0C5A977E9306685A7 /* Pods-NanoChallenge-6.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -177,9 +199,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 16CA424A287F420C0046C98C /* Build configuration list for PBXNativeTarget "NanoChallenge-6" */;
 			buildPhases = (
+				C40FBEA7AB9A7E47A58675FC /* [CP] Check Pods Manifest.lock */,
 				16CA4232287F42090046C98C /* Sources */,
 				16CA4233287F42090046C98C /* Frameworks */,
 				16CA4234287F42090046C98C /* Resources */,
+				1DDFDB9C2031134C61FAA12B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -214,7 +238,7 @@
 				Base,
 			);
 			mainGroup = 16CA422D287F42090046C98C;
-			productRefGroup = 16CA4237287F42090046C98C /* Products */;
+			productRefGroup = 16CA422D287F42090046C98C;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -236,6 +260,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1DDFDB9C2031134C61FAA12B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NanoChallenge-6/Pods-NanoChallenge-6-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NanoChallenge-6/Pods-NanoChallenge-6-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NanoChallenge-6/Pods-NanoChallenge-6-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C40FBEA7AB9A7E47A58675FC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NanoChallenge-6-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		16CA4232287F42090046C98C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -249,7 +315,9 @@
 				16A29CCA288A2C2900AD61AF /* AtualizaOuAdicionaUsuarioViewModel.swift in Sources */,
 				16CA423A287F42090046C98C /* AppDelegate.swift in Sources */,
 				16CA42572880F9B00046C98C /* ListaDepositosTableViewCell.swift in Sources */,
+				168C8C36289027C80047A85B /* LocationManager.swift in Sources */,
 				16A29CC42889B0C500AD61AF /* AcaoEscolhida.swift in Sources */,
+				169D8CD8288F5F800041A36F /* AuxAdicionarEnderecoViewController.swift in Sources */,
 				16CA423C287F42090046C98C /* SceneDelegate.swift in Sources */,
 				16CA4254287F47350046C98C /* DepositoMD.swift in Sources */,
 				169D8CD4288F43C30041A36F /* CadastroViewController.swift in Sources */,
@@ -398,6 +466,7 @@
 		};
 		16CA424B287F420C0046C98C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D4ECD3B76FFE6EC46BA0C310 /* Pods-NanoChallenge-6.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -425,6 +494,7 @@
 		};
 		16CA424C287F420C0046C98C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D989DC0C5A977E9306685A7 /* Pods-NanoChallenge-6.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
