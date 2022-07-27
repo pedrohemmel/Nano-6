@@ -50,7 +50,7 @@ final class AtualizaOuAdicionaUsuarioViewModel: ObservableObject {
         }
         
         //Criando o objeto que queremos enviar para o banco de dados
-        let usuario = UsuarioMD(email: self.emailUsu, id: nil, nomeUsu: self.nomeDeUsuario, endereco: self.nomeUsu, nome: self.enderecoUsu, senha: self.senhaUsu)
+        let usuario = UsuarioMD(email: self.emailUsu, id: nil, nomeUsu: self.nomeDeUsuario, nome: self.nomeUsu, endereco: self.enderecoUsu, senha: self.senhaUsu)
         
         //Enviando o objeto criado pela url autenticada e determinando o metodo que enviamos por HTTP que é o POST
         try await ClienteHttp.shared.enviarDado(to: url, objeto: usuario, metodoHttp: MetodosHTTP.POST.rawValue)
@@ -68,7 +68,7 @@ final class AtualizaOuAdicionaUsuarioViewModel: ObservableObject {
         }
         
         //Criando o objeto que queremos enviar para o banco de dados mas agora setamos o id existente porque o objeto sera modificado e não criado
-        let usuario = UsuarioMD(email: self.emailUsu, id: self.usuarioId, nomeUsu: self.nomeDeUsuario, endereco: self.nomeUsu, nome: self.enderecoUsu, senha: self.senhaUsu)
+        let usuario = UsuarioMD(email: self.emailUsu, id: self.usuarioId, nomeUsu: self.nomeDeUsuario, nome: self.enderecoUsu, endereco: self.nomeUsu, senha: self.senhaUsu)
         
         //Enviando o objeto criado pela url autenticada e determinando o metodo que enviamos por HTTP que é o PUT que seria para modificar o objeto
         try await ClienteHttp.shared.enviarDado(to: url, objeto: usuario, metodoHttp: MetodosHTTP.PUT.rawValue)

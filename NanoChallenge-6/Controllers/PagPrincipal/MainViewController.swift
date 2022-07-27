@@ -59,7 +59,6 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tbViewListDepositos.dequeueReusableCell(withIdentifier: "ListaDepositosTableViewCell") as! ListaDepositosTableViewCell
         cell.lblNomeDeposito.text = "Depósito do seu zé"
-        cell.lblAvaliacaoDeposito.text = "4.7"
         cell.lblDistanciaDeposito.text = "12.0" + " Km"
         return cell
     }

@@ -1,17 +1,16 @@
 //
-//  ListaDepositosTableViewCell.swift
+//  EnderecoTableViewCell.swift
 //  NanoChallenge-6
 //
-//  Created by Pedro Henrique Dias Hemmel de Oliveira Souza on 14/07/22.
+//  Created by Pedro Henrique Dias Hemmel de Oliveira Souza on 26/07/22.
 //
 
 import UIKit
 
-class ListaDepositosTableViewCell: UITableViewCell {
+class EnderecoTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var lblNomeDeposito: UILabel!
-    @IBOutlet weak var lblDistanciaDeposito: UILabel!
-
+    //Estruturando celula para ser utilizada no arquivo AdicionarEnderecoViewController
+    @IBOutlet weak var lblEndereco: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

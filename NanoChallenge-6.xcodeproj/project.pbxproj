@@ -7,46 +7,48 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		169D8CD4288F43C30041A36F /* CadastroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169D8CD3288F43C30041A36F /* CadastroViewController.swift */; };
-		169D8CD6288F5B440041A36F /* AdicionarEnderecoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169D8CD5288F5B440041A36F /* AdicionarEnderecoViewController.swift */; };
-		16A29CC42889B0C500AD61AF /* AcaoEscolhida.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A29CC32889B0C500AD61AF /* AcaoEscolhida.swift */; };
 		16A29CC62889B75F00AD61AF /* DepositoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A29CC52889B75F00AD61AF /* DepositoViewModel.swift */; };
 		16A29CC8288A2C1600AD61AF /* AtualizaOuAdicionaDepositoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A29CC7288A2C1600AD61AF /* AtualizaOuAdicionaDepositoViewModel.swift */; };
 		16A29CCA288A2C2900AD61AF /* AtualizaOuAdicionaUsuarioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A29CC9288A2C2900AD61AF /* AtualizaOuAdicionaUsuarioViewModel.swift */; };
 		16A6659A288C3A200011B8C4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A66599288C3A200011B8C4 /* LoginViewController.swift */; };
+		16B1690C28915F4200B1BE0D /* AdicionarEnderecoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B1690B28915F4200B1BE0D /* AdicionarEnderecoViewController.swift */; };
+		16B1690E28915F7700B1BE0D /* CadastroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B1690D28915F7700B1BE0D /* CadastroViewController.swift */; };
+		16B1691028915F7F00B1BE0D /* EnderecoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B1690F28915F7F00B1BE0D /* EnderecoTableViewCell.swift */; };
+		16B1691228915FE700B1BE0D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B1691128915FE700B1BE0D /* MainViewController.swift */; };
+		16B1691428915FEE00B1BE0D /* ListaDepositosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B1691328915FEE00B1BE0D /* ListaDepositosTableViewCell.swift */; };
+		16B169162891607300B1BE0D /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B169152891607300B1BE0D /* LocationManager.swift */; };
 		16CA423A287F42090046C98C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CA4239287F42090046C98C /* AppDelegate.swift */; };
 		16CA423C287F42090046C98C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CA423B287F42090046C98C /* SceneDelegate.swift */; };
-		16CA423E287F42090046C98C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CA423D287F42090046C98C /* MainViewController.swift */; };
 		16CA4241287F42090046C98C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16CA423F287F42090046C98C /* Main.storyboard */; };
 		16CA4243287F420C0046C98C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16CA4242287F420C0046C98C /* Assets.xcassets */; };
 		16CA4246287F420C0046C98C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16CA4244287F420C0046C98C /* LaunchScreen.storyboard */; };
 		16CA4251287F43600046C98C /* UsuarioMD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CA4250287F43600046C98C /* UsuarioMD.swift */; };
 		16CA4254287F47350046C98C /* DepositoMD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CA4253287F47350046C98C /* DepositoMD.swift */; };
-		16CA42572880F9B00046C98C /* ListaDepositosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CA42562880F9B00046C98C /* ListaDepositosTableViewCell.swift */; };
 		16CC824D288957CD0007D3F0 /* UsuarioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CC824C288957CD0007D3F0 /* UsuarioViewModel.swift */; };
 		16CC82502889591F0007D3F0 /* Constantes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CC824F2889591F0007D3F0 /* Constantes.swift */; };
 		16CC825228895AE70007D3F0 /* ClienteHTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CC825128895AE70007D3F0 /* ClienteHTTP.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		169D8CD3288F43C30041A36F /* CadastroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroViewController.swift; sourceTree = "<group>"; };
-		169D8CD5288F5B440041A36F /* AdicionarEnderecoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdicionarEnderecoViewController.swift; sourceTree = "<group>"; };
-		16A29CC32889B0C500AD61AF /* AcaoEscolhida.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcaoEscolhida.swift; sourceTree = "<group>"; };
 		16A29CC52889B75F00AD61AF /* DepositoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositoViewModel.swift; sourceTree = "<group>"; };
 		16A29CC7288A2C1600AD61AF /* AtualizaOuAdicionaDepositoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtualizaOuAdicionaDepositoViewModel.swift; sourceTree = "<group>"; };
 		16A29CC9288A2C2900AD61AF /* AtualizaOuAdicionaUsuarioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtualizaOuAdicionaUsuarioViewModel.swift; sourceTree = "<group>"; };
 		16A66599288C3A200011B8C4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		16B1690B28915F4200B1BE0D /* AdicionarEnderecoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdicionarEnderecoViewController.swift; sourceTree = "<group>"; };
+		16B1690D28915F7700B1BE0D /* CadastroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CadastroViewController.swift; sourceTree = "<group>"; };
+		16B1690F28915F7F00B1BE0D /* EnderecoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnderecoTableViewCell.swift; sourceTree = "<group>"; };
+		16B1691128915FE700B1BE0D /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		16B1691328915FEE00B1BE0D /* ListaDepositosTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListaDepositosTableViewCell.swift; sourceTree = "<group>"; };
+		16B169152891607300B1BE0D /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		16CA4236287F42090046C98C /* NanoChallenge-6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NanoChallenge-6.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16CA4239287F42090046C98C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16CA423B287F42090046C98C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		16CA423D287F42090046C98C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		16CA4240287F42090046C98C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		16CA4242287F420C0046C98C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		16CA4245287F420C0046C98C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		16CA4247287F420C0046C98C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		16CA4250287F43600046C98C /* UsuarioMD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuarioMD.swift; sourceTree = "<group>"; };
 		16CA4253287F47350046C98C /* DepositoMD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositoMD.swift; sourceTree = "<group>"; };
-		16CA42562880F9B00046C98C /* ListaDepositosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaDepositosTableViewCell.swift; sourceTree = "<group>"; };
 		16CC824C288957CD0007D3F0 /* UsuarioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuarioViewModel.swift; sourceTree = "<group>"; };
 		16CC824F2889591F0007D3F0 /* Constantes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constantes.swift; sourceTree = "<group>"; };
 		16CC825128895AE70007D3F0 /* ClienteHTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClienteHTTP.swift; sourceTree = "<group>"; };
@@ -76,8 +78,9 @@
 		169D8CD2288F43800041A36F /* PagCadastro */ = {
 			isa = PBXGroup;
 			children = (
-				169D8CD3288F43C30041A36F /* CadastroViewController.swift */,
-				169D8CD5288F5B440041A36F /* AdicionarEnderecoViewController.swift */,
+				16B1690D28915F7700B1BE0D /* CadastroViewController.swift */,
+				16B1690B28915F4200B1BE0D /* AdicionarEnderecoViewController.swift */,
+				16B1690F28915F7F00B1BE0D /* EnderecoTableViewCell.swift */,
 			);
 			path = PagCadastro;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 				16A29CC52889B75F00AD61AF /* DepositoViewModel.swift */,
 				16A29CC7288A2C1600AD61AF /* AtualizaOuAdicionaDepositoViewModel.swift */,
 				16A29CC9288A2C2900AD61AF /* AtualizaOuAdicionaUsuarioViewModel.swift */,
+				16B169152891607300B1BE0D /* LocationManager.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -154,8 +158,8 @@
 		16CA42552880F96B0046C98C /* PagPrincipal */ = {
 			isa = PBXGroup;
 			children = (
-				16CA423D287F42090046C98C /* MainViewController.swift */,
-				16CA42562880F9B00046C98C /* ListaDepositosTableViewCell.swift */,
+				16B1691128915FE700B1BE0D /* MainViewController.swift */,
+				16B1691328915FEE00B1BE0D /* ListaDepositosTableViewCell.swift */,
 			);
 			path = PagPrincipal;
 			sourceTree = "<group>";
@@ -165,7 +169,6 @@
 			children = (
 				16CC824F2889591F0007D3F0 /* Constantes.swift */,
 				16CC825128895AE70007D3F0 /* ClienteHTTP.swift */,
-				16A29CC32889B0C500AD61AF /* AcaoEscolhida.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -245,17 +248,18 @@
 				16CC824D288957CD0007D3F0 /* UsuarioViewModel.swift in Sources */,
 				16A29CC62889B75F00AD61AF /* DepositoViewModel.swift in Sources */,
 				16CC825228895AE70007D3F0 /* ClienteHTTP.swift in Sources */,
-				16CA423E287F42090046C98C /* MainViewController.swift in Sources */,
+				16B1691228915FE700B1BE0D /* MainViewController.swift in Sources */,
 				16A29CCA288A2C2900AD61AF /* AtualizaOuAdicionaUsuarioViewModel.swift in Sources */,
 				16CA423A287F42090046C98C /* AppDelegate.swift in Sources */,
-				16CA42572880F9B00046C98C /* ListaDepositosTableViewCell.swift in Sources */,
-				16A29CC42889B0C500AD61AF /* AcaoEscolhida.swift in Sources */,
 				16CA423C287F42090046C98C /* SceneDelegate.swift in Sources */,
 				16CA4254287F47350046C98C /* DepositoMD.swift in Sources */,
-				169D8CD4288F43C30041A36F /* CadastroViewController.swift in Sources */,
 				16CA4251287F43600046C98C /* UsuarioMD.swift in Sources */,
 				16A29CC8288A2C1600AD61AF /* AtualizaOuAdicionaDepositoViewModel.swift in Sources */,
-				169D8CD6288F5B440041A36F /* AdicionarEnderecoViewController.swift in Sources */,
+				16B1691028915F7F00B1BE0D /* EnderecoTableViewCell.swift in Sources */,
+				16B1690E28915F7700B1BE0D /* CadastroViewController.swift in Sources */,
+				16B169162891607300B1BE0D /* LocationManager.swift in Sources */,
+				16B1690C28915F4200B1BE0D /* AdicionarEnderecoViewController.swift in Sources */,
+				16B1691428915FEE00B1BE0D /* ListaDepositosTableViewCell.swift in Sources */,
 				16CC82502889591F0007D3F0 /* Constantes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
