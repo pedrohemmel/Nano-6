@@ -556,7 +556,6 @@
                         <constraints>
                             <constraint firstItem="gKA-ga-TJl" firstAttribute="leading" secondItem="cTH-we-oZS" secondAttribute="leading" constant="15" id="2c9-0I-rS9"/>
                             <constraint firstItem="mSH-rf-Cba" firstAttribute="top" secondItem="gKA-ga-TJl" secondAttribute="bottom" constant="15" id="5QH-7B-Szn"/>
-                            <constraint firstItem="xYi-2d-hF2" firstAttribute="top" secondItem="aMG-l7-OVk" secondAttribute="top" id="7v5-9s-H1y"/>
                             <constraint firstItem="D1l-O9-mhu" firstAttribute="leading" secondItem="cTH-we-oZS" secondAttribute="leading" constant="15" id="9c9-iy-jhv"/>
                             <constraint firstItem="cTH-we-oZS" firstAttribute="trailing" secondItem="TSO-cC-Zwg" secondAttribute="trailing" constant="15" id="AA6-4d-eJS"/>
                             <constraint firstItem="gKA-ga-TJl" firstAttribute="top" secondItem="TSO-cC-Zwg" secondAttribute="bottom" constant="15" id="CtN-TV-Jnr"/>
@@ -568,6 +567,7 @@
                             <constraint firstItem="xYi-2d-hF2" firstAttribute="leading" secondItem="aMG-l7-OVk" secondAttribute="leading" id="VEF-MP-Hux"/>
                             <constraint firstItem="TSO-cC-Zwg" firstAttribute="top" secondItem="D1l-O9-mhu" secondAttribute="bottom" constant="15" id="VTr-LW-TxT"/>
                             <constraint firstItem="cTH-we-oZS" firstAttribute="trailing" secondItem="D1l-O9-mhu" secondAttribute="trailing" constant="15" id="YGE-jk-Xgx"/>
+                            <constraint firstItem="xYi-2d-hF2" firstAttribute="top" secondItem="aMG-l7-OVk" secondAttribute="top" id="Zrw-S3-IMo"/>
                             <constraint firstItem="TSO-cC-Zwg" firstAttribute="leading" secondItem="cTH-we-oZS" secondAttribute="leading" constant="15" id="ceH-ec-5X8"/>
                             <constraint firstItem="YEh-lt-l17" firstAttribute="centerX" secondItem="aMG-l7-OVk" secondAttribute="centerX" id="jvS-St-DNA"/>
                             <constraint firstItem="D1l-O9-mhu" firstAttribute="top" secondItem="W64-vT-FMh" secondAttribute="bottom" constant="30" id="nfu-tE-AI0"/>
@@ -583,6 +583,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="imgBannerFundo" destination="xYi-2d-hF2" id="Lyb-Vw-3AK"/>
                         <outlet property="iptEmailView" destination="gKA-ga-TJl" id="7nk-jv-jX8"/>
                         <outlet property="iptNomeUsuView" destination="TSO-cC-Zwg" id="Edg-Qt-hnr"/>
                         <outlet property="iptNomeView" destination="D1l-O9-mhu" id="3rw-W2-ZpC"/>

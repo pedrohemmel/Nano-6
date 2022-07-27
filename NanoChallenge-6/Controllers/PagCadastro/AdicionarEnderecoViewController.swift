@@ -27,6 +27,10 @@ class AdicionarEnderecoViewController: UIViewController {
     //Criando a variavel array que armazenará as localizações
     var localizacoes = [Localizacao]()
     
+    //Criando variável que vai auxiliar quando o keyboard for aparacer e esconder alguns textFields
+    var escondeuTxtField : Bool = true
+    var equilibraPosicaoView : Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -43,9 +47,42 @@ class AdicionarEnderecoViewController: UIViewController {
         txtFieldProcurarEndereco.delegate = self
         tbViewPrincipal.delegate = self
         tbViewPrincipal.dataSource = self
+        
+        adicionandoFuncoesKeyBoard()
     }
     
     //FUNÇÕES AQUI//
+    
+    //FUNÇÕES DO KEYBOARD
+    
+    func adicionandoFuncoesKeyBoard() {
+        //Chamando funções de quando o usuário ativa o keyboard
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(escondeKeyBoard)))
+        NotificationCenter.default.addObserver(self, selector: #selector(apareceKeyBoard(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(desapareceKeyBoard), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    @objc func escondeKeyBoard() {
+        self.view.endEditing(true)
+    }
+    @objc func apareceKeyBoard(notification: NSNotification) {
+        if self.escondeuTxtField == true {
+            if(self.equilibraPosicaoView == 0) {
+                self.view.frame = self.view.frame.offsetBy(dx: CGFloat(0), dy: CGFloat(-90))
+                self.escondeuTxtField = false
+                self.equilibraPosicaoView = -50
+            }
+        }
+    }
+    @objc func desapareceKeyBoard() {
+        if self.escondeuTxtField == false {
+            if(self.equilibraPosicaoView != 0) {
+                self.view.frame = self.view.frame.offsetBy(dx: CGFloat(0), dy: CGFloat(90))
+                self.escondeuTxtField = true
+                self.equilibraPosicaoView = 0
+            }
+            
+        }
+    }
     
     
     @IBAction func adicionarNovoUsuario(_ sender: Any) {

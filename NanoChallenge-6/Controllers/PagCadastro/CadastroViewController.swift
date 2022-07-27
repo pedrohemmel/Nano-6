@@ -10,6 +10,7 @@ import UIKit
 class CadastroViewController: UIViewController {
 
 
+    @IBOutlet weak var imgBannerFundo: UIImageView!
     @IBOutlet weak var txtFieldNome: UITextField!
     @IBOutlet weak var txtFieldNomeUsuario: UITextField!
     @IBOutlet weak var txtFieldEmail: UITextField!
@@ -20,55 +21,80 @@ class CadastroViewController: UIViewController {
     @IBOutlet weak var iptEmailView: UIView!
     @IBOutlet weak var iptSenhaView: UIView!
     
+    //Criando variável que vai auxiliar quando o keyboard for aparacer e esconder alguns textFields
+    var escondeuTxtField : Bool = true
+    var equilibraPosicaoView : Int = 0
+    
     var usuarios = [UsuarioMD]()
+    
+    //Inicializando uma variável do tipo UsuarioViewModel para poder armazenar o valor que as funções trazem
+    let usuarioViewModel = UsuarioViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Inicializando uma variável do tipo UsuarioViewModel para poder armazenar o valor que as funções trazem
-        let usuarioViewModel = UsuarioViewModel()
-        
-        //setando borda customizada à alguns objetos
-        iptNomeView.layer.cornerRadius = 10
-        iptNomeUsuView.layer.cornerRadius = 10
-        iptEmailView.layer.cornerRadius = 10
-        iptSenhaView.layer.cornerRadius = 10
-        
+        //SETANDO INFORMAÇÕES DA VIEW CONSTROLLER
+        adicionandoBordasCustomizadas()
         //Declarando que o textfield de senha tem que ter letras escondidas
         txtFieldSenha.isSecureTextEntry = true
-        
-        //Chamando e guardando todos usuários (objetos) contidos dentro do banco de dados e guarda-los em uma variável array
-        Task {
-            do {
-                try await usuarioViewModel.buscaUsuarios()
-                usuarios = usuarioViewModel.usuarios
-            } catch {
-                print("Erro \(error)")
-            }
-        }
-        
-        //Chamando funções de quando o usuário ativa o keyboard
-        
-        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(escondeKeyBoard)))
-        NotificationCenter.default.addObserver(self, selector: #selector(apareceKeyBoard(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(desapareceKeyBoard), name: UIResponder.keyboardWillHideNotification, object: nil)
+        buscarUsuarios()
+        adicionandoFuncoesKeyBoard()
         
     }
     
     //FUNÇÕES AQUI//
     
-    //Funções do keyBoard
+    //Buscando dados dos usuários
+    func buscarUsuarios() {
+        //Chamando e guardando todos usuários (objetos) contidos dentro do banco de dados e guarda-los em uma variável array
+        Task {
+            do {
+                try await self.usuarioViewModel.buscaUsuarios()
+                self.usuarios = usuarioViewModel.usuarios
+            } catch {
+                print("Erro \(error)")
+            }
+        }
+    }
     
+    //Setando borda nos inputs
+    func adicionandoBordasCustomizadas() {
+        //setando borda customizada à alguns objetos
+        iptNomeView.layer.cornerRadius = 10
+        iptNomeUsuView.layer.cornerRadius = 10
+        iptEmailView.layer.cornerRadius = 10
+        iptSenhaView.layer.cornerRadius = 10
+    }
+    
+    //FUNÇÕES DO KEYBOARD
+    
+    func adicionandoFuncoesKeyBoard() {
+        //Chamando funções de quando o usuário ativa o keyboard
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(escondeKeyBoard)))
+        NotificationCenter.default.addObserver(self, selector: #selector(apareceKeyBoard(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(desapareceKeyBoard), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
     @objc func escondeKeyBoard() {
         self.view.endEditing(true)
     }
-    
     @objc func apareceKeyBoard(notification: NSNotification) {
-        print("apareceu")
+        if self.escondeuTxtField == true {
+            if(self.equilibraPosicaoView == 0) {
+                self.view.frame = self.view.frame.offsetBy(dx: CGFloat(0), dy: CGFloat(-125))
+                self.escondeuTxtField = false
+                self.equilibraPosicaoView = -125
+            }
+        }
     }
-    
     @objc func desapareceKeyBoard() {
-        
+        if self.escondeuTxtField == false {
+            if(self.equilibraPosicaoView != 0) {
+                self.view.frame = self.view.frame.offsetBy(dx: CGFloat(0), dy: CGFloat(125))
+                self.escondeuTxtField = true
+                self.equilibraPosicaoView = 0
+            }
+            
+        }
     }
     
     //Função que verifica se ja existe um usuário com com as mesmas informações privadas

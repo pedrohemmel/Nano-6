@@ -48,12 +48,22 @@ class LoginViewController: UIViewController {
             print(usuario)
         }
         
+        adicionandoFuncoesKeyBoard()
+        
     
 
         // Do any additional setup after loading the view.
     }
     
     //FUNÇÕES AQUI//
+    
+    func adicionandoFuncoesKeyBoard() {
+        //Chamando funções de quando o usuário ativa o keyboard
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(escondeKeyBoard)))
+    }
+    @objc func escondeKeyBoard() {
+        self.view.endEditing(true)
+    }
     
     func verificaLogin(emailOuUsuario: String, senha: String, usuario: UsuarioMD) -> Bool {
         if ((emailOuUsuario == usuario.email && senha == usuario.senha) || (emailOuUsuario == usuario.nomeUsu && senha == usuario.senha)) {

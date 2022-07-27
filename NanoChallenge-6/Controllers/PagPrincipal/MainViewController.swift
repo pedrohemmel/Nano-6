@@ -19,8 +19,9 @@ class MainViewController: UIViewController {
     @IBOutlet weak var mapViewPagPrincipal: MKMapView!
     @IBOutlet weak var viewBtnFiltrarPesquisa: UIButton!
     
-    
-    
+
+    //Criando a variável que vai guardar o usuário que fez o login
+    var usuario : UsuarioMD? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +40,18 @@ class MainViewController: UIViewController {
         //Referenciando o delegate e dataSource dos objetos à classe ViewController
         tbViewListDepositos.delegate = self
         tbViewListDepositos.dataSource = self
+        
+        adicionandoFuncoesKeyBoard()
+    }
+    
+    //FUNÇÕES AQUI//
+    
+    func adicionandoFuncoesKeyBoard() {
+        //Chamando funções de quando o usuário ativa o keyboard
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(escondeKeyBoard)))
+    }
+    @objc func escondeKeyBoard() {
+        self.view.endEditing(true)
     }
 
 
