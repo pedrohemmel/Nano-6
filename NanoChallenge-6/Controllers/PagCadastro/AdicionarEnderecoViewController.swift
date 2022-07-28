@@ -27,9 +27,11 @@ class AdicionarEnderecoViewController: UIViewController {
     //Criando a variavel array que armazenará as localizações
     var localizacoes = [Localizacao]()
     
+    //variavel que conta quantas vezes cada letra foi escrita
+    var contaLetra : Int = 0
+    
     //Criando variável que vai auxiliar quando o keyboard for aparacer e esconder alguns textFields
     var escondeuTxtField : Bool = true
-    var equilibraPosicaoView : Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,71 +43,74 @@ class AdicionarEnderecoViewController: UIViewController {
         
         //Setando cor default do botão de confirmar enquanto não tiver escolhido o endereco
         btnConfirmarEndereco.backgroundColor = .lightGray
-
+        
+        
+        adicionarFuncoesKeyBoard()
 
         //Referenciando o delegate e dataSource dos objetos à classe ViewController
         txtFieldProcurarEndereco.delegate = self
         tbViewPrincipal.delegate = self
         tbViewPrincipal.dataSource = self
         
-        adicionandoFuncoesKeyBoard()
+        
     }
     
     //FUNÇÕES AQUI//
     
-    //FUNÇÕES DO KEYBOARD
+    //FUNÇÕES DO KEYBOARD//
     
-    func adicionandoFuncoesKeyBoard() {
+    func adicionarFuncoesKeyBoard() {
+        var toque = UITapGestureRecognizer(target: self, action: #selector(escondeKeyBoard))
+        //Adicionando propriedade que impede alguns conflitos de clique
+        toque.cancelsTouchesInView = false
         //Chamando funções de quando o usuário ativa o keyboard
-        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(escondeKeyBoard)))
+        self.view.addGestureRecognizer(toque)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(apareceKeyBoard(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(desapareceKeyBoard), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
+    
     @objc func escondeKeyBoard() {
         self.view.endEditing(true)
     }
-    @objc func apareceKeyBoard(notification: NSNotification) {
-        if self.escondeuTxtField == true {
-            if(self.equilibraPosicaoView == 0) {
-                self.view.frame = self.view.frame.offsetBy(dx: CGFloat(0), dy: CGFloat(-90))
-                self.escondeuTxtField = false
-                self.equilibraPosicaoView = -50
-            }
-        }
-    }
-    @objc func desapareceKeyBoard() {
-        if self.escondeuTxtField == false {
-            if(self.equilibraPosicaoView != 0) {
-                self.view.frame = self.view.frame.offsetBy(dx: CGFloat(0), dy: CGFloat(90))
-                self.escondeuTxtField = true
-                self.equilibraPosicaoView = 0
-            }
-            
-        }
-    }
     
+@objc func apareceKeyBoard(notification: NSNotification) {
+    if self.escondeuTxtField == true {
+        self.view.frame = self.view.frame.offsetBy(dx: CGFloat(0), dy: CGFloat(-130))
+        self.escondeuTxtField = false    }
+}
+@objc func desapareceKeyBoard() {
+    if self.escondeuTxtField == false {
+            self.view.frame = self.view.frame.offsetBy(dx: CGFloat(0), dy: CGFloat(130))
+            self.escondeuTxtField = true
+    }
+}
+
+
     
     @IBAction func adicionarNovoUsuario(_ sender: Any) {
         //Verificando se o botão está disponível para ser clicado
         if(btnConfirmarEndereco.backgroundColor == UIColor(red: 5/255, green: 175/255, blue: 242/255, alpha: 1)) {
             
             //Estruturando um novo usuário para enviar ao banco de dados
-            let usuario = UsuarioMD(email: self.email!, id: nil, nomeUsu: self.nomeUsuario!, nome: self.nome!, endereco: self.endereco!, senha: self.senha!)
+            let novoUsuario = UsuarioMD(email: self.email!, id: nil, nomeUsu: self.nomeUsuario!, nome: self.nome!, endereco: self.endereco!, senha: self.senha!)
             
-            let adicionarUsu = AtualizaOuAdicionaUsuarioViewModel(usuarioAtual: usuario)
+            let adicionarUsu = AtualizaOuAdicionaUsuarioViewModel(usuarioAtual: novoUsuario)
             
+            //Chamando a função que adiciona um novo usuário
             adicionarUsu.atualizaOuAdicionaUsuario()
 
+            //Instanciando uma nova ViewController
             let entry = storyboard?.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
             entry.modalPresentationStyle = .fullScreen
+            entry.usuario = novoUsuario
             present(entry, animated: true)
-            
-            
             
         }
     }
     
     func adicionarPin(didSelectLocationWith coordinate: CLLocationCoordinate2D?) {
+        
         guard let coordinate = coordinate else {
             return
         }
@@ -143,19 +148,27 @@ extension AdicionarEnderecoViewController: UITextFieldDelegate {
     
     //Para cada letra digitada, será feita a busca
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        //Verificando se o tetxo não está vazio
-        if let texto = txtFieldProcurarEndereco.text, !texto.isEmpty {
-            
-            //Fazendo a requisição do endereço
-            LocationManager.shared.acharLocalizacao(with: texto) { [weak self] localizacoes in
-                DispatchQueue.main.async {
-                    self?.localizacoes = localizacoes
-                    self?.tbViewPrincipal.reloadData()
+        
+        if(contaLetra < 4) {
+            //Verificando se o tetxo não está vazio
+            if let texto = txtFieldProcurarEndereco.text, !texto.isEmpty {
+                
+                //Fazendo a requisição do endereço
+                LocationManager.shared.acharLocalizacao(with: texto) { [weak self] localizacoes in
+                    DispatchQueue.main.async {
+                        self?.localizacoes = localizacoes
+                        self?.tbViewPrincipal.reloadData()
+                    }
                 }
             }
+            
+            self.btnConfirmarEndereco.backgroundColor = .lightGray
+        } else {
+            contaLetra = 0
         }
         
-        self.btnConfirmarEndereco.backgroundColor = .lightGray
+        
+        contaLetra = contaLetra + 1
         
         return true
     }
@@ -165,12 +178,12 @@ extension AdicionarEnderecoViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.adicionarPin(didSelectLocationWith: localizacoes[indexPath.row].coordenadas)
-        
+
         self.btnConfirmarEndereco.backgroundColor = UIColor(red: 5/255, green: 175/255, blue: 242/255, alpha: 1)
-        
+
         //Guardando a latitude e longitude na variável endereço que é o que vai ser guardado no banco de dados
         self.endereco = String(localizacoes[indexPath.row].coordenadas.latitude) + " " + String(localizacoes[indexPath.row].coordenadas.longitude)
-        
+
         tbViewPrincipal.deselectRow(at: indexPath, animated: true)
     }
     
@@ -194,9 +207,7 @@ extension AdicionarEnderecoViewController: UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
-    }
+    
     
     
 }

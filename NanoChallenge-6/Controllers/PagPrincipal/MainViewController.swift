@@ -22,9 +22,16 @@ class MainViewController: UIViewController {
 
     //Criando a variável que vai guardar o usuário que fez o login
     var usuario : UsuarioMD? = nil
+    var usuarios = [UsuarioMD]()
+    let usuarioViewModel = UsuarioViewModel()
+    
+    //Booleano que vai ser a condição para verificar se o usuário está logado ou não
+    var verificaUsuario : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        verificaUsuarioLogado()
         
         //Manipulando as views que representarão o input
         mapViewPagPrincipal.layer.cornerRadius = 10
@@ -45,6 +52,30 @@ class MainViewController: UIViewController {
     }
     
     //FUNÇÕES AQUI//
+    
+    func verificaUsuarioLogado() {
+        //Lógica para verificar se o usuário está logado
+        Task {
+            do {
+                try await usuarioViewModel.buscaUsuarios()
+                usuarios = usuarioViewModel.usuarios
+            } catch {
+                print("Erro: \(error)")
+            }
+        }
+        
+        for usuario in usuarios {
+            if(usuario.nomeUsu == self.usuario?.nomeUsu) {
+                verificaUsuario = true
+            }
+        }
+        
+        if(verificaUsuario == false) {
+            let entry = storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+            entry.modalPresentationStyle = .fullScreen
+            present(entry, animated: true)
+        }
+    }
     
     func adicionandoFuncoesKeyBoard() {
         //Chamando funções de quando o usuário ativa o keyboard

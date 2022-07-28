@@ -54,10 +54,6 @@ class LocationManager: NSObject {
                     tituloCompleto += ", \(pais)"
                 }
                 
-                //TESTE//
-                print("\(place)\n")
-                print(tituloCompleto)
-                
                 //Estruturando a struct Localização que vai ser retornada
                 let localizacao = Localizacao(titulo: tituloCompleto, coordenadas: place.location!.coordinate)
                 

@@ -36,19 +36,16 @@ class ClienteHttp {
     //Função responsável por fazer a query do banco de dados se comunicando pela API
     func buscar<T: Codable>(url: URL) async throws -> [T] {
         let (data, response) = try await URLSession.shared.data(from: url)
-        print("ja fez o get")
+
         //Verificando se a URL está autêntica no servidor
         guard (response as? HTTPURLResponse)?.statusCode == 200 else {
             throw ErrosHTTP.badResponse
         }
         
-        print("erro ")
         //Puxando todos dados dentro da tabela usuarios e jogando dentro da variável (Array de generics) objeto
         guard let objeto = try? JSONDecoder().decode([T].self, from: data) else {
             throw ErrosHTTP.errorDecodingData
         }
-        
-        print("termina aqui")
         
         return objeto
     }

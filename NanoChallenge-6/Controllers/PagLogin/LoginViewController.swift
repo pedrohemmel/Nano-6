@@ -76,8 +76,6 @@ class LoginViewController: UIViewController {
     
     @IBAction func entrarComEmailESenha(_ sender: Any) {
         
-        print("Entrou na função")
-        
         //Transformando os textos contidos nas textViews em strings
         guard let iptEU = txtFieldEmailOuUsuario.text else { return }
         let txtIptEU = iptEU.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -89,18 +87,18 @@ class LoginViewController: UIViewController {
         if (txtIptEU != "" && txtIptS != "") {
             //Fazendo o laço de repetição que vai percorrer todos usuário para verificar se algum coincide com o que foi digitado
             for usuario in self.usuarios {
-                print(usuario.nome)
                 if(verificaLogin(emailOuUsuario: txtIptEU, senha: txtIptS, usuario: usuario)) {
                     //Instanciando a MainViewController e redirecionando para la
                     let entry = storyboard?.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
                     entry.modalPresentationStyle = .fullScreen
+                    entry.usuario = usuario
                     present(entry, animated: true)
                 } else {
-                    print("Não entrou")
+                  
                 }
             }
         } else {
-            print("Não escreveu nada")
+        
         }
         
         
