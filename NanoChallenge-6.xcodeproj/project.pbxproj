@@ -75,6 +75,24 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		168E8B2E2892BE140082579F /* Usuarios */ = {
+			isa = PBXGroup;
+			children = (
+				16A29CC9288A2C2900AD61AF /* AtualizaOuAdicionaUsuarioViewModel.swift */,
+				16CC824C288957CD0007D3F0 /* UsuarioViewModel.swift */,
+			);
+			path = Usuarios;
+			sourceTree = "<group>";
+		};
+		168E8B2F2892BE2C0082579F /* Depositos */ = {
+			isa = PBXGroup;
+			children = (
+				16A29CC52889B75F00AD61AF /* DepositoViewModel.swift */,
+				16A29CC7288A2C1600AD61AF /* AtualizaOuAdicionaDepositoViewModel.swift */,
+			);
+			path = Depositos;
+			sourceTree = "<group>";
+		};
 		169D8CD2288F43800041A36F /* PagCadastro */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,10 +164,8 @@
 		16CA424F287F42980046C98C /* View Models */ = {
 			isa = PBXGroup;
 			children = (
-				16CC824C288957CD0007D3F0 /* UsuarioViewModel.swift */,
-				16A29CC52889B75F00AD61AF /* DepositoViewModel.swift */,
-				16A29CC7288A2C1600AD61AF /* AtualizaOuAdicionaDepositoViewModel.swift */,
-				16A29CC9288A2C2900AD61AF /* AtualizaOuAdicionaUsuarioViewModel.swift */,
+				168E8B2F2892BE2C0082579F /* Depositos */,
+				168E8B2E2892BE140082579F /* Usuarios */,
 				16B169152891607300B1BE0D /* LocationManager.swift */,
 			);
 			path = "View Models";

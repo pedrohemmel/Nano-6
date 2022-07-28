@@ -22,6 +22,7 @@ class DepositoViewModel: ObservableObject {
         
         //Buscando os dados no banco de dados
         let depositosResponse : [DepositoMD] = try await ClienteHttp.shared.buscar(url: url)
+   
         
         //Atualizando os objetos dentro da variável array depositos
         DispatchQueue.main.async {

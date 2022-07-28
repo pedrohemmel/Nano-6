@@ -9,9 +9,9 @@ import Foundation
 
 struct DepositoMD: Identifiable, Codable {
     let id: UUID?
-    var nomeFantasia: String
-    var CNPJ: String
-    var emailContato: String
+    var cnpj: String
     var endereco: String
     var senha: String
+    var emailContato: String
+    var nomeFantasia: String
 }

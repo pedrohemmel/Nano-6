@@ -124,6 +124,9 @@ class AdicionarEnderecoViewController: UIViewController {
         mapaPrincipal.setRegion(MKCoordinateRegion(center: coordinate, span: MKCoordinateSpan(latitudeDelta: 0.009, longitudeDelta: 0.009)), animated: true)
     }
 
+    @IBAction func voltarCadastro(_ sender: Any) {
+        dismiss(animated: true)
+    }
 }
 
 extension AdicionarEnderecoViewController: UITextFieldDelegate {
@@ -182,7 +185,7 @@ extension AdicionarEnderecoViewController: UITableViewDelegate {
         self.btnConfirmarEndereco.backgroundColor = UIColor(red: 5/255, green: 175/255, blue: 242/255, alpha: 1)
 
         //Guardando a latitude e longitude na variável endereço que é o que vai ser guardado no banco de dados
-        self.endereco = String(localizacoes[indexPath.row].coordenadas.latitude) + " " + String(localizacoes[indexPath.row].coordenadas.longitude)
+        self.endereco = localizacoes[indexPath.row].titulo
 
         tbViewPrincipal.deselectRow(at: indexPath, animated: true)
     }

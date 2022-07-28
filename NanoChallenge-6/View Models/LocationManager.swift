@@ -63,7 +63,24 @@ class LocationManager: NSObject {
             
             completion(enderecoEstruturado)
         }
-        
-    
     }
+    
+    
+//    public func acharLocalizacaoComLatELon(pLatitude: String, comLongitudde pLongitude: String) {
+//        
+//        var center = CLLocationCoordinate2D()
+//        
+//        //Tornando a latitude e longitude que são do tipo String, do tipo Double e guardando-as em duas variáveis
+//        let lat : Double = Double("\(pLatitude)")!
+//        let lon : Double = Double("\(pLongitude)")!
+//        
+//        //Atribuindo o valor da latitude e longitude do tipo Double nas propriedades do center
+//        center.latitude = lat
+//        center.longitude = lon
+//        
+//        let loc = CLLocation(latitude: center.latitude, longitude: center.longitude)
+//        
+//        //Criando a variável que auxiliará na estruturação do endereço
+//        let ceo = CLGeocoder()
+//    }
 }
