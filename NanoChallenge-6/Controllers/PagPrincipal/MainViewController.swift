@@ -131,7 +131,6 @@ class MainViewController: UIViewController {
             self.tbViewListDepositos.reloadData()
         }
     }
-    
     //Função que atualiza a array dos depósitos
     func atualizaListaDepositos() {
         Task {
@@ -146,8 +145,24 @@ class MainViewController: UIViewController {
         }
     }
     
+    
+    @IBAction func direcionarPagFiltrar(_ sender: Any) {
+        let entry = storyboard?.instantiateViewController(withIdentifier: "FiltroViewController") as! FiltroViewController
+        entry.sheetPresentationController?.detents = [.medium()]
+        
+        present(entry, animated: true)
+        
+    }
     //Função que direciona o usuário para outra página que mostre o mapa de forma mais ampla
     @IBAction func verGeograficamente(_ sender: Any) {
+        let entry = storyboard?.instantiateViewController(withIdentifier: "MapaGeograficoViewController") as! MapaGeograficoViewController
+        
+        entry.usuario = self.usuario
+        entry.depositos = self.depositos
+        
+        entry.modalPresentationStyle = .fullScreen
+        present(entry, animated: true)
+        
     }
     
     func adicionandoFuncoesKeyBoard() {
@@ -182,7 +197,6 @@ class MainViewController: UIViewController {
         mapViewPagPrincipal.addAnnotation(pin)
         mapViewPagPrincipal.setRegion(MKCoordinateRegion(center: coordinate, span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)), animated: true)
     }
-    
     func adicionarPinDepositos(didSelectLocationWith coordinate: CLLocationCoordinate2D?, titulo: String) {
         
         guard let coordinate = coordinate else {
@@ -198,12 +212,12 @@ class MainViewController: UIViewController {
     }
     
     //Funções para achar distancia entre pontos
+    
     func distanciaEntrePontos(_ priLocalizacao: CLLocation, comSegLocalizacao segLocalizacao: CLLocation) -> Double {
         let distanciaEmMetros : CLLocationDistance = priLocalizacao.distance(from: segLocalizacao)
         
         return Double(distanciaEmMetros)
     }
-    
     func localizaDeposito(endereco: String) {
         
         LocationManager.shared.acharLocalizacao(with: endereco) { [weak self] localizacoes in
@@ -270,6 +284,7 @@ extension MainViewController: UITextFieldDelegate {
     }
 }
 
+//Extansão voltada para customização dos pins no mapa
 
 extension MainViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -290,7 +305,7 @@ extension MainViewController: MKMapViewDelegate {
         if annotation.subtitle == "Depósito" {
             annotationView?.image = UIImage(named: "ToolBox")
         } else {
-            annotationView?.image = UIImage(named: "locationPin")
+            annotationView?.image = UIImage(named: "LocationPin")
         }
         
                 

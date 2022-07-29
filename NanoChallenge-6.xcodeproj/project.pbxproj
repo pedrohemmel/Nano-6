@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		168E8B3128935B4B0082579F /* MapaGeograficoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168E8B3028935B4B0082579F /* MapaGeograficoViewController.swift */; };
+		168E8B33289365F00082579F /* FiltroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168E8B32289365F00082579F /* FiltroViewController.swift */; };
 		16A29CC62889B75F00AD61AF /* DepositoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A29CC52889B75F00AD61AF /* DepositoViewModel.swift */; };
 		16A29CC8288A2C1600AD61AF /* AtualizaOuAdicionaDepositoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A29CC7288A2C1600AD61AF /* AtualizaOuAdicionaDepositoViewModel.swift */; };
 		16A29CCA288A2C2900AD61AF /* AtualizaOuAdicionaUsuarioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A29CC9288A2C2900AD61AF /* AtualizaOuAdicionaUsuarioViewModel.swift */; };
@@ -30,6 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		168E8B3028935B4B0082579F /* MapaGeograficoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapaGeograficoViewController.swift; sourceTree = "<group>"; };
+		168E8B32289365F00082579F /* FiltroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltroViewController.swift; sourceTree = "<group>"; };
 		16A29CC52889B75F00AD61AF /* DepositoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositoViewModel.swift; sourceTree = "<group>"; };
 		16A29CC7288A2C1600AD61AF /* AtualizaOuAdicionaDepositoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtualizaOuAdicionaDepositoViewModel.swift; sourceTree = "<group>"; };
 		16A29CC9288A2C2900AD61AF /* AtualizaOuAdicionaUsuarioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtualizaOuAdicionaUsuarioViewModel.swift; sourceTree = "<group>"; };
@@ -176,6 +180,8 @@
 			children = (
 				16B1691128915FE700B1BE0D /* MainViewController.swift */,
 				16B1691328915FEE00B1BE0D /* ListaDepositosTableViewCell.swift */,
+				168E8B3028935B4B0082579F /* MapaGeograficoViewController.swift */,
+				168E8B32289365F00082579F /* FiltroViewController.swift */,
 			);
 			path = PagPrincipal;
 			sourceTree = "<group>";
@@ -262,6 +268,7 @@
 			files = (
 				16A6659A288C3A200011B8C4 /* LoginViewController.swift in Sources */,
 				16CC824D288957CD0007D3F0 /* UsuarioViewModel.swift in Sources */,
+				168E8B33289365F00082579F /* FiltroViewController.swift in Sources */,
 				16A29CC62889B75F00AD61AF /* DepositoViewModel.swift in Sources */,
 				16CC825228895AE70007D3F0 /* ClienteHTTP.swift in Sources */,
 				16B1691228915FE700B1BE0D /* MainViewController.swift in Sources */,
@@ -277,6 +284,7 @@
 				16B1690C28915F4200B1BE0D /* AdicionarEnderecoViewController.swift in Sources */,
 				16B1691428915FEE00B1BE0D /* ListaDepositosTableViewCell.swift in Sources */,
 				16CC82502889591F0007D3F0 /* Constantes.swift in Sources */,
+				168E8B3128935B4B0082579F /* MapaGeograficoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
