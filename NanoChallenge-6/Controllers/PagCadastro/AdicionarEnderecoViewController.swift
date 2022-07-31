@@ -99,9 +99,21 @@ class AdicionarEnderecoViewController: UIViewController {
             
             //Chamando a função que adiciona um novo usuário
             adicionarUsu.atualizaOuAdicionaUsuario()
+            
+            //Setando status do usuário para que de agora em diante ele esteja logado sem precisar logar novamente
+            UserDefaults.standard.setValue(true, forKey: "logado")
+            
+            //Setando variável do usuário no userDefaults
+            do {
+                let encoder = JSONEncoder()
+                let newUsuario = try encoder.encode(novoUsuario)
+                UserDefaults.standard.set(newUsuario, forKey: "usuario")
+            } catch {
+                print("Erro: \(error)")
+            }
 
             //Instanciando uma nova ViewController
-            let entry = storyboard?.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+            let entry = storyboard?.instantiateViewController(withIdentifier: "ControlerDePagsViewController") as! ControlerDePagsViewController
             entry.modalPresentationStyle = .fullScreen
             entry.usuario = novoUsuario
             present(entry, animated: true)

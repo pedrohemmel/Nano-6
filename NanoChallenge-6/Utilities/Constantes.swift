@@ -9,7 +9,7 @@ import Foundation
 
 //Esse enum representará o link base de conexão com banco de dados
 enum Constantes {
-    static let baseURL = "https://904e-189-33-99-32.sa.ngrok.io/"
+    static let baseURL = "https://9db4-189-33-99-32.sa.ngrok.io/"
 }
 
 //Esse enum representará o nome após a barra do link

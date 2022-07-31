@@ -21,6 +21,10 @@ class MapaGeograficoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        print(UserDefaults.standard.value(forKey: "nomeDUsuario"))
+//        print(UserDefaults.standard.value(forKey: "logado"))
+        
+        
         //Fazendo a requisição do endereço
         LocationManager.shared.acharLocalizacao(with: usuario?.endereco ?? "") { [weak self] localizacoes in
             self?.adicionarPin(didSelectLocationWith: localizacoes[0].coordenadas)

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1685860B289480C300D562F4 /* DepositoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1685860A289480C300D562F4 /* DepositoViewController.swift */; };
+		1685860D28958DC100D562F4 /* ControlerDePagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1685860C28958DC100D562F4 /* ControlerDePagsViewController.swift */; };
+		1685860F2896282B00D562F4 /* ConfiguracoesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1685860E2896282B00D562F4 /* ConfiguracoesViewController.swift */; };
 		168E8B3128935B4B0082579F /* MapaGeograficoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168E8B3028935B4B0082579F /* MapaGeograficoViewController.swift */; };
 		168E8B33289365F00082579F /* FiltroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168E8B32289365F00082579F /* FiltroViewController.swift */; };
 		16A29CC62889B75F00AD61AF /* DepositoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A29CC52889B75F00AD61AF /* DepositoViewModel.swift */; };
@@ -32,6 +35,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1685860A289480C300D562F4 /* DepositoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositoViewController.swift; sourceTree = "<group>"; };
+		1685860C28958DC100D562F4 /* ControlerDePagsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlerDePagsViewController.swift; sourceTree = "<group>"; };
+		1685860E2896282B00D562F4 /* ConfiguracoesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfiguracoesViewController.swift; sourceTree = "<group>"; };
 		168E8B3028935B4B0082579F /* MapaGeograficoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapaGeograficoViewController.swift; sourceTree = "<group>"; };
 		168E8B32289365F00082579F /* FiltroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltroViewController.swift; sourceTree = "<group>"; };
 		16A29CC52889B75F00AD61AF /* DepositoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositoViewModel.swift; sourceTree = "<group>"; };
@@ -77,6 +83,25 @@
 				169D8CD2288F43800041A36F /* PagCadastro */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		168586082894808700D562F4 /* deposito */ = {
+			isa = PBXGroup;
+			children = (
+				1685860A289480C300D562F4 /* DepositoViewController.swift */,
+			);
+			path = deposito;
+			sourceTree = "<group>";
+		};
+		168586092894809300D562F4 /* paginasAuxiliares */ = {
+			isa = PBXGroup;
+			children = (
+				16B1691328915FEE00B1BE0D /* ListaDepositosTableViewCell.swift */,
+				168E8B3028935B4B0082579F /* MapaGeograficoViewController.swift */,
+				168E8B32289365F00082579F /* FiltroViewController.swift */,
+				1685860C28958DC100D562F4 /* ControlerDePagsViewController.swift */,
+			);
+			path = paginasAuxiliares;
 			sourceTree = "<group>";
 		};
 		168E8B2E2892BE140082579F /* Usuarios */ = {
@@ -179,9 +204,9 @@
 			isa = PBXGroup;
 			children = (
 				16B1691128915FE700B1BE0D /* MainViewController.swift */,
-				16B1691328915FEE00B1BE0D /* ListaDepositosTableViewCell.swift */,
-				168E8B3028935B4B0082579F /* MapaGeograficoViewController.swift */,
-				168E8B32289365F00082579F /* FiltroViewController.swift */,
+				1685860E2896282B00D562F4 /* ConfiguracoesViewController.swift */,
+				168586092894809300D562F4 /* paginasAuxiliares */,
+				168586082894808700D562F4 /* deposito */,
 			);
 			path = PagPrincipal;
 			sourceTree = "<group>";
@@ -275,15 +300,18 @@
 				16A29CCA288A2C2900AD61AF /* AtualizaOuAdicionaUsuarioViewModel.swift in Sources */,
 				16CA423A287F42090046C98C /* AppDelegate.swift in Sources */,
 				16CA423C287F42090046C98C /* SceneDelegate.swift in Sources */,
+				1685860F2896282B00D562F4 /* ConfiguracoesViewController.swift in Sources */,
 				16CA4254287F47350046C98C /* DepositoMD.swift in Sources */,
 				16CA4251287F43600046C98C /* UsuarioMD.swift in Sources */,
 				16A29CC8288A2C1600AD61AF /* AtualizaOuAdicionaDepositoViewModel.swift in Sources */,
 				16B1691028915F7F00B1BE0D /* EnderecoTableViewCell.swift in Sources */,
+				1685860B289480C300D562F4 /* DepositoViewController.swift in Sources */,
 				16B1690E28915F7700B1BE0D /* CadastroViewController.swift in Sources */,
 				16B169162891607300B1BE0D /* LocationManager.swift in Sources */,
 				16B1690C28915F4200B1BE0D /* AdicionarEnderecoViewController.swift in Sources */,
 				16B1691428915FEE00B1BE0D /* ListaDepositosTableViewCell.swift in Sources */,
 				16CC82502889591F0007D3F0 /* Constantes.swift in Sources */,
+				1685860D28958DC100D562F4 /* ControlerDePagsViewController.swift in Sources */,
 				168E8B3128935B4B0082579F /* MapaGeograficoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

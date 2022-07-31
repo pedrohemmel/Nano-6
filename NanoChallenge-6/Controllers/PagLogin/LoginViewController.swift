@@ -17,11 +17,23 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var iptSenhaView: UIView!
     @IBOutlet weak var btnEntrar: UIButton!
     
+    //Criando variável userDefault para guardar o status de logado no sistema do usuário
+    var userDefaults = UserDefaults()
+    
     //Criando a variável do tipo UsuariosMD que vai auxiliar no processo de login
     var usuarios = [UsuarioMD]()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        UserDefaults.standard.setValue(nil, forKey: "usuario")
+//        UserDefaults.standard.setValue(nil, forKey: "logado")
+//
+//        let entry = storyboard?.instantiateViewController(withIdentifier: "MapaGeograficoViewController") as! MapaGeograficoViewController
+//        entry.modalPresentationStyle = .fullScreen
+//        present(entry, animated: true)
+
         
         //Modificando as bordas das views de campo para inserir email, senha e o botão de entrar
         iptEmailOuUsuarioView.layer.cornerRadius = 10
@@ -55,6 +67,12 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    //É chamado a função verificaStatus no ViewDidAppear porque apenas nesse momento é possivel fazer um redirecionamento de tela caso o usuário ja tenha feito o login
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        verificaStatus()
+    }
+    
     //FUNÇÕES AQUI//
     
     func adicionandoFuncoesKeyBoard() {
@@ -72,6 +90,37 @@ class LoginViewController: UIViewController {
             return false
         }
     }
+    
+    func verificaStatus() {
+        //Criando as variáveis que vão armazenar os valores contidos no UserDefaults
+        var log = false
+        var usuario : UsuarioMD?
+        
+        //Guardando os dados do UserDefaults nas variáveis
+        if let logado = UserDefaults.standard.value(forKey: "logado") as? Bool {
+            log = logado
+        }
+        if let usu = UserDefaults.standard.value(forKey: "usuario") as? Data {
+            let decoder = JSONDecoder()
+            do {
+                usuario = try decoder.decode(UsuarioMD.self, from: usu)
+            } catch {
+                print("Erro: \(error)")
+            }
+        }
+
+        //Fazendo a estrura condicional para checar se o usuario ja está no sistema
+        if log {
+            if usuario != nil {
+         
+                //Instanciando a MainViewController e redirecionando para la
+                let entry = storyboard?.instantiateViewController(withIdentifier: "ControlerDePagsViewController") as! ControlerDePagsViewController
+                entry.modalPresentationStyle = .fullScreen
+                entry.usuario = usuario
+                present(entry, animated: true)
+            }
+        }
+    }
 
     
     @IBAction func entrarComEmailESenha(_ sender: Any) {
@@ -83,23 +132,71 @@ class LoginViewController: UIViewController {
         guard let iptS = txtFieldSenha.text else { return }
         let txtIptS = iptS.trimmingCharacters(in: .whitespacesAndNewlines)
         
-        //Fazendo a condição de que se os campos estiverem vazios, nada acontecerá ao clicar e caso ao contrário, será feito a verificação de usuário
-        if (txtIptEU != "" && txtIptS != "") {
-            //Fazendo o laço de repetição que vai percorrer todos usuário para verificar se algum coincide com o que foi digitado
-            for usuario in self.usuarios {
-                if(verificaLogin(emailOuUsuario: txtIptEU, senha: txtIptS, usuario: usuario)) {
-                    //Instanciando a MainViewController e redirecionando para la
-                    let entry = storyboard?.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-                    entry.modalPresentationStyle = .fullScreen
-                    entry.usuario = usuario
-                    present(entry, animated: true)
+        //Criando a variável que vai receber o status do userDefaults para ver se o usuário pode continuar logado
+        if let estaLogado = UserDefaults.standard.value(forKey: "logado") as? Bool {
+            if !estaLogado {
+                //Fazendo a condição de que se os campos estiverem vazios, nada acontecerá ao clicar e caso ao contrário, será feito a verificação de usuário
+                if (txtIptEU != "" && txtIptS != "") {
+                    //Fazendo o laço de repetição que vai percorrer todos usuário para verificar se algum coincide com o que foi digitado
+                    for usuario in self.usuarios {
+                        if(verificaLogin(emailOuUsuario: txtIptEU, senha: txtIptS, usuario: usuario)) {
+                            
+                            //Setando status do usuário para que de agora em diante ele esteja logado sem precisar logar novamente
+                            userDefaults.setValue(true, forKey: "logado")
+                            
+                            //Setando variável do usuário no userDefaults
+                            userDefaults.setValue(usuario, forKey: "usuario")
+                            
+                            //Instanciando a MainViewController e redirecionando para la
+                            let entry = storyboard?.instantiateViewController(withIdentifier: "ControlerDePagsViewController") as! ControlerDePagsViewController
+                            entry.modalPresentationStyle = .fullScreen
+                            entry.usuario = usuario
+                            present(entry, animated: true)
+                        } else {
+                            //Se tiver campos errados
+                        }
+                    }
                 } else {
-                  
+                    //Se tiver campos incompletos
                 }
+                
             }
         } else {
-        
+            
+            //Fazendo a condição de que se os campos estiverem vazios, nada acontecerá ao clicar e caso ao contrário, será feito a verificação de usuário
+            if (txtIptEU != "" && txtIptS != "") {
+                //Fazendo o laço de repetição que vai percorrer todos usuário para verificar se algum coincide com o que foi digitado
+                for usuario in self.usuarios {
+                    if(verificaLogin(emailOuUsuario: txtIptEU, senha: txtIptS, usuario: usuario)) {
+                        
+                        //Setando status do usuário para que de agora em diante ele esteja logado sem precisar logar novamente
+                        UserDefaults.standard.setValue(true, forKey: "logado")
+                        
+                        //Setando variável do usuário no userDefaults
+                        do {
+                            let encoder = JSONEncoder()
+                            let newUsuario = try encoder.encode(usuario)
+                            UserDefaults.standard.set(newUsuario, forKey: "usuario")
+                        } catch {
+                            print("Erro: \(error)")
+                        }
+                        
+                        
+                        //Instanciando a MainViewController e redirecionando para la
+                        let entry = storyboard?.instantiateViewController(withIdentifier: "ControlerDePagsViewController") as! ControlerDePagsViewController
+                        entry.modalPresentationStyle = .fullScreen
+                        entry.usuario = usuario
+                        present(entry, animated: true)
+                    } else {
+                        //Se tiver campos errados
+                    }
+                }
+            } else {
+                //Se tiver campos incompletos
+            }
+            
         }
+        
         
         
         

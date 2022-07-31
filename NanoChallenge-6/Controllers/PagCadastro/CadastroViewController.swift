@@ -130,7 +130,6 @@ class CadastroViewController: UIViewController {
                 
                 //Instanciando a tela que adicionará um endereco ao usuário
                 let entry = storyboard?.instantiateViewController(withIdentifier: "AdicionarEnderecoViewController") as! AdicionarEnderecoViewController
-                
       
                 //Enviando dados do usuário para a próxima tela
                 entry.nome = txtIptN
