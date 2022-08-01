@@ -96,6 +96,8 @@ class LoginViewController: UIViewController {
         var log = false
         var usuario : UsuarioMD?
         
+        
+        
         //Guardando os dados do UserDefaults nas variáveis
         if let logado = UserDefaults.standard.value(forKey: "logado") as? Bool {
             log = logado
