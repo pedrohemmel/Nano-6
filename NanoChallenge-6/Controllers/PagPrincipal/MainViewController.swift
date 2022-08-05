@@ -50,8 +50,6 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
         verificaStatusUsuario()
         
         verificaUsuarioLogado()
@@ -60,31 +58,18 @@ class MainViewController: UIViewController {
         buscandoEAdicionandoDepositos()
 
         //Manipulando as views que representarão o input
-        mapViewPagPrincipal.layer.cornerRadius = 10
-        viewIptPrincipal.layer.cornerRadius = 10
-        viewBtnSearch.layer.cornerRadius = 10
-        viewBtnFiltrarPesquisa.layer.cornerRadius = 10
+        adicionarBordarViews()
 
         
         //Ajustando para que só o lado esquerdo da viewBtnSearch estejam com o cornerRadius aplicado
         viewBtnSearch.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
         
         //Referenciando o delegate e dataSource dos objetos à classe ViewController
-        tbViewListDepositos.delegate = self
-        tbViewListDepositos.dataSource = self
-        mapViewPagPrincipal.delegate = self
-        txtFieldProcurar.delegate = self
+        referenciandoDelegateViews()
         
         adicionandoFuncoesKeyBoard()
         
-        //Fazendo a requisição do endereço
-        LocationManager.shared.acharLocalizacao(with: usuario?.endereco ?? "") { [weak self] localizacoes in
-            print("\n\n\n Esse veio do nada \n\n\n")
-            
-            //Aplicando string endereco a label de endereco
-            self?.lblEnderecoEscolhido.text = self?.usuario?.endereco
-            self?.adicionarPin(didSelectLocationWith: localizacoes[0].coordenadas)
-        }
+        setEnderecoUsuario()
     }
     
     //FUNÇÕES AQUI//
@@ -134,9 +119,7 @@ class MainViewController: UIViewController {
 
                 //Verificando o retorno de autenticação do usuário e caso não tiver encontrado a tela é redirecionada para login
                 if(verificaUsuario == false) {
-                    let entry = storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-                    entry.modalPresentationStyle = .fullScreen
-                    present(entry, animated: true)
+                    voltarPagLogin()
                 }
                 
             } catch {
@@ -165,8 +148,6 @@ class MainViewController: UIViewController {
             //Fazendo a estrura condicional para checar se o usuario ja está no sistema
             if log {
                 if nomeUsu != "" && nomeUsu != nil {
-                    print(nomeUsu)
-                    
                     buscarUsuario()
                     
                     for usuario in self.usuarios {
@@ -225,8 +206,6 @@ class MainViewController: UIViewController {
     
     
     @IBAction func direcionarPagFiltrar(_ sender: Any) {
-        
-    
         
         //Setando cada deposito e sua distancia na array de ListaDeposito
         for deposito in self.depositos {
@@ -292,6 +271,32 @@ class MainViewController: UIViewController {
         
     }
     
+    func setEnderecoUsuario() {
+        //Fazendo a requisição do endereço
+        LocationManager.shared.acharLocalizacao(with: usuario?.endereco ?? "") { [weak self] localizacoes in
+            
+            //Aplicando string endereco a label de endereco
+            self?.lblEnderecoEscolhido.text = self?.usuario?.endereco
+            self?.adicionarPin(didSelectLocationWith: localizacoes[0].coordenadas)
+        }
+    }
+    
+    func adicionarBordarViews() {
+        //Manipulando as views que representarão o input
+        mapViewPagPrincipal.layer.cornerRadius = 10
+        viewIptPrincipal.layer.cornerRadius = 10
+        viewBtnSearch.layer.cornerRadius = 10
+        viewBtnFiltrarPesquisa.layer.cornerRadius = 10
+    }
+    
+    func referenciandoDelegateViews() {
+        //Referenciando o delegate e dataSource dos objetos à classe ViewController
+        tbViewListDepositos.delegate = self
+        tbViewListDepositos.dataSource = self
+        mapViewPagPrincipal.delegate = self
+        txtFieldProcurar.delegate = self
+    }
+    
     func adicionandoFuncoesKeyBoard() {
         
         let toque = UITapGestureRecognizer(target: self, action: #selector(escondeKeyBoard))
@@ -342,6 +347,8 @@ class MainViewController: UIViewController {
     
     func distanciaEntrePontos(_ priLocalizacao: CLLocation, comSegLocalizacao segLocalizacao: CLLocation) -> Double {
         
+        print("\n\n\n\n\n\n\(priLocalizacao) and\(segLocalizacao)\n\n\n\n\n\n")
+        
         //Utilizando função que pega duas localizações e retorna a distancia entre as duas
         let distanciaEmMetros : CLLocationDistance = priLocalizacao.distance(from: segLocalizacao)
         
@@ -352,7 +359,7 @@ class MainViewController: UIViewController {
         LocationManager.shared.acharLocalizacao(with: endereco) { [weak self] localizacoes in
             //Criando a variável do tipo localização e atribuindo latitude e longitude do deposito na mesma
             self?.localizacaoDeposito = CLLocation(latitude: localizacoes[0].coordenadas.latitude, longitude: localizacoes[0].coordenadas.longitude)
-            return
+           
         }
     }
     //Função que ve a distancia entre o usuário e o deposito
@@ -360,6 +367,8 @@ class MainViewController: UIViewController {
         LocationManager.shared.acharLocalizacao(with: usuario?.endereco ?? "") { [weak self] localizacoes in
             //Buscando as localizações do usuario e do depósito para pegar a distancia
             let localizacaoUsuario = CLLocation(latitude: localizacoes[0].coordenadas.latitude, longitude: localizacoes[0].coordenadas.longitude)
+            
+            print("\n\n\n\(deposito.endereco)\n\n\n")
             self?.localizaDeposito(endereco: deposito.endereco)
             self?.distanciaDepEUsu = self?.distanciaEntrePontos(localizacaoUsuario, comSegLocalizacao: self!.localizacaoDeposito)
         }
@@ -492,10 +501,11 @@ extension MainViewController: UITableViewDataSource {
         
         distanciaEntreUsuEDep(deposito: self.depositos[indexPath.row])
         
+        print("\(self.depositos[indexPath.row])")
+        
         cell.lblDistanciaDeposito.text = "\(String(format: "%.2f Km", (distanciaDepEUsu ?? 0.0)/1000))"
         
-        //Adicionando os valores da celula em uma variável estruturada para futuros processos
-        
+        distanciaDepEUsu = 0.0
         
     
         
